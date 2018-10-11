@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestDiakontModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BetwRate">
+    <Key>
+      <PropertyRef Name="id_BetwRate" />
+    </Key>
+    <Property Name="id_BetwRate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_rate" Type="Int32" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="WageRate" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Dep">
+    <Key>
+      <PropertyRef Name="id_dep" />
+    </Key>
+    <Property Name="id_dep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameDep" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Pos">
+    <Key>
+      <PropertyRef Name="id_pos" />
+    </Key>
+    <Property Name="id_pos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NamePos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="rate">
+    <Key>
+      <PropertyRef Name="id_rate" />
+    </Key>
+    <Property Name="id_rate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_pos" Type="Int32" />
+    <Property Name="id_dep" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ViewDep">
+    <Key>
+      <PropertyRef Name="id_dep" />
+    </Key>
+    <Property Name="id_dep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameDep" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="TestDiakontEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BetwRates" EntityType="Self.BetwRate" />
+    <EntitySet Name="Deps" EntityType="Self.Dep" />
+    <EntitySet Name="Pos" EntityType="Self.Pos" />
+    <EntitySet Name="rates" EntityType="Self.rate" />
+    <EntitySet Name="ViewDeps" EntityType="Self.ViewDep" />
+    <FunctionImport Name="Insert_Rate">
+      <Parameter Name="id_rate" Mode="In" Type="Int32" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="WageRate" Mode="In" Type="Int32" />
+      <Parameter Name="Cnt" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TestDiakontModelStoreContainer" CdmEntityContainer="TestDiakontEntities">
+    <EntitySetMapping Name="BetwRates">
+      <EntityTypeMapping TypeName="TestDiakontModel.BetwRate">
+        <MappingFragment StoreEntitySet="BetwRate">
+          <ScalarProperty Name="id_BetwRate" ColumnName="id_BetwRate" />
+          <ScalarProperty Name="id_rate" ColumnName="id_rate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="WageRate" ColumnName="WageRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deps">
+      <EntityTypeMapping TypeName="TestDiakontModel.Dep">
+        <MappingFragment StoreEntitySet="Dep">
+          <ScalarProperty Name="id_dep" ColumnName="id_dep" />
+          <ScalarProperty Name="NameDep" ColumnName="NameDep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pos">
+      <EntityTypeMapping TypeName="TestDiakontModel.Pos">
+        <MappingFragment StoreEntitySet="Pos">
+          <ScalarProperty Name="id_pos" ColumnName="id_pos" />
+          <ScalarProperty Name="NamePos" ColumnName="NamePos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rates">
+      <EntityTypeMapping TypeName="TestDiakontModel.rate">
+        <MappingFragment StoreEntitySet="rate">
+          <ScalarProperty Name="id_rate" ColumnName="id_rate" />
+          <ScalarProperty Name="id_pos" ColumnName="id_pos" />
+          <ScalarProperty Name="id_dep" ColumnName="id_dep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewDeps">
+      <EntityTypeMapping TypeName="TestDiakontModel.ViewDep">
+        <MappingFragment StoreEntitySet="ViewDep">
+          <ScalarProperty Name="id_dep" ColumnName="id_dep" />
+          <ScalarProperty Name="NameDep" ColumnName="NameDep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Insert_Rate" FunctionName="TestDiakontModel.Store.Insert_Rate" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,88 @@
+﻿<Window x:Class="TestDiakont.PosInDep"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestDiakont"
+        mc:Ignorable="d"
+        Title="Должности в отделе" Height="388.97" Width="415.441" Loaded="Window_Loaded">
+
+    <Grid Margin="0,0,0,0">
+        <ComboBox x:Name="CbxDep" HorizontalAlignment="Left" Margin="138,10,0,0" VerticalAlignment="Top" Width="196" SelectionChanged="CbxDep_SelectionChanged"/>
+        <Label x:Name="label" Content="Подразделение" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="100"/>
+
+        <DataGrid x:Name="dataGridPosInDep" IsReadOnly="True" AutoGenerateColumns="False"  HorizontalAlignment="Stretch" Margin="0,37,0,105" VerticalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding NamePos}" Header="Должность" Width="125"/>
+                <DataGridTextColumn Binding="{Binding StartDate, StringFormat=MMM yyyy}" Header="Дата начала" Width="125"/>
+                <DataGridTextColumn Binding="{Binding CountPos, StringFormat=D}" Header="Кол-во" Width="70"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <TabControl x:Name="tabControl" HorizontalAlignment="Stretch" Height="105" VerticalAlignment="Bottom">
+            <TabItem x:Name="TabEdt" Header="Окно ввода">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="label1" Content="Должность" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Height="24"/>
+                    <Label x:Name="label2" Content="Количество" HorizontalAlignment="Left" Margin="0,24,0,0" VerticalAlignment="Top" Width="77"/>
+                    <Label x:Name="label3" Content="Дата начала" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" Width="77"/>
+                    <ComboBox x:Name="CbxPos" HorizontalAlignment="Left" Margin="98,2,0,0" VerticalAlignment="Top" Width="190"/>
+                    <TextBox x:Name="TxtBxCount" HorizontalAlignment="Left" Height="23" Margin="98,27,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="28"/>
+
+
+                    <DatePicker  local:DatePickerCalendar.IsMonthYear="True" 
+                        local:DatePickerDateFormat.DateFormat="MMM-yyyy"
+                        SelectedDate="{Binding FromDate}"               
+                                
+                                  
+                                  
+                  x:Name="MonthCalendar" HorizontalAlignment="Left" Margin="98,49,0,4">
+                        <DatePicker.Resources>
+
+                            <Style TargetType="{x:Type DatePickerTextBox}">
+                                <Setter Property="Control.Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <TextBox Width="60"    TextAlignment="Center" x:Name="PART_TextBox"
+                                     Text="{Binding Path=SelectedDate, StringFormat='MM yy', 
+                                     RelativeSource={RelativeSource AncestorType={x:Type DatePicker}},FallbackValue='-- --'}" />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DatePicker.Resources>
+                        <!--CalendarOpened="DatePicker_CalendarOpened"-->
+                    </DatePicker>
+                    <Button x:Name="BtnSave" Content="Сохранить" HorizontalAlignment="Left" Margin="213,53,0,0" VerticalAlignment="Top" Width="75" Click="BtnSave_Click"/>
+                    <Button x:Name="BtnCancel" Content="Отменить" HorizontalAlignment="Left" Margin="318,52,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel_Click"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabBtn" Header="Кнопки">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="11*"/>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="131*"/>
+                        <ColumnDefinition Width="242*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BtnAdd" Grid.ColumnSpan="3" Content="Добавить" HorizontalAlignment="Left" Height="25" Margin="10,42,0,0" VerticalAlignment="Top" Width="56" Click="BtnAdd_Click"/>
+                </Grid>
+            </TabItem>
+
+
+        </TabControl>
+
+
+    </Grid>
+
+
+
+
+
+
+
+
+
+</Window>

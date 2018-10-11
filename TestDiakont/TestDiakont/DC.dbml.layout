@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DC">
+  <DataContextMoniker Name="/DCDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d4b2b007-eaef-463d-8cb6-871692a092c9" absoluteBounds="7.25, 3.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DCDataContext/BetwRate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d325289-b6d7-4356-b6f0-4c6b2b1e9f3d" absoluteBounds="7.265, 3.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bea0f91d-b903-4571-96c5-cdfeb97c3bc9" absoluteBounds="2.875, 3.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DCDataContext/Dep" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cace7cc6-9907-43a6-af6a-e1cf212c22f2" absoluteBounds="2.89, 4.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="43f8065f-af7c-4211-809f-96ac9fc2ee96" absoluteBounds="3.625, 2.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DCDataContext/Po" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cf841b13-63ab-4e90-94fa-c560a8398c4c" absoluteBounds="3.64, 2.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TestDiakont" Class="DCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ASP-GERFED;Initial Catalog=TestDiakont;User ID=UserDiakont" SettingsObjectName="TestDiakont.Properties.Settings" SettingsPropertyName="TestDiakontConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BetwRate" Member="BetwRates">
+    <Type Name="BetwRate">
+      <Column Name="id_BetwRate" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_rate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="WageRate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Dep" Member="Deps">
+    <Type Name="Dep">
+      <Column Name="id_dep" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameDep" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pos" Member="Pos">
+    <Type Name="Po">
+      <Column Name="id_pos" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NamePos" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="id_dep" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.UpdateRate" Method="UpdateRate">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="WageRate" Parameter="wageRate" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_pos" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.RateInPos" Method="RateInPos">
+    <Parameter Name="id_pos" Type="System.Int32" DbType="Int" />
+    <ElementType Name="RateInPosResult">
+      <Column Name="id_BetwRate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_rate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="WageRate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AddPosInDep" Method="AddPosInDep">
+    <Parameter Name="id_dep" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_pos" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CountPos" Parameter="countPos" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PosInDep" Method="PosInDep">
+    <Parameter Name="id_dep" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PosInDepResult">
+      <Column Name="id_ss" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_dep" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CountPos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NamePos" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SSandBetwRateDate" Method="SSandBetwRateDate">
+    <Parameter Name="id_pos" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FromDate" Parameter="fromDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ToDate" Parameter="toDate" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

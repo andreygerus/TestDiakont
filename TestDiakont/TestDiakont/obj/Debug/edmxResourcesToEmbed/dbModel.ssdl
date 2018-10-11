@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestDiakontModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestDiakont.dbo.BetwRate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BetwRate">
+    <Key>
+      <PropertyRef Name="id_BetwRate" />
+    </Key>
+    <Property Name="id_BetwRate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_rate" Type="int" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="WageRate" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestDiakont.dbo.Dep' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Dep">
+    <Key>
+      <PropertyRef Name="id_dep" />
+    </Key>
+    <Property Name="id_dep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameDep" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestDiakont.dbo.Pos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Pos">
+    <Key>
+      <PropertyRef Name="id_pos" />
+    </Key>
+    <Property Name="id_pos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NamePos" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestDiakont.dbo.rate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="rate">
+    <Key>
+      <PropertyRef Name="id_rate" />
+    </Key>
+    <Property Name="id_rate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_pos" Type="int" />
+    <Property Name="id_dep" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestDiakont.dbo.ViewDep' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewDep">
+    <Key>
+      <PropertyRef Name="id_dep" />
+    </Key>
+    <Property Name="id_dep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameDep" Type="nvarchar(max)" />
+  </EntityType>
+  <Function Name="Insert_Rate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_rate" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="WageRate" Type="int" Mode="In" />
+    <Parameter Name="Cnt" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="TestDiakontModelStoreContainer">
+    <EntitySet Name="BetwRate" EntityType="Self.BetwRate" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[BetwRate].[id_BetwRate] AS [id_BetwRate], 
+[BetwRate].[id_rate] AS [id_rate], 
+[BetwRate].[StartDate] AS [StartDate], 
+[BetwRate].[EndDate] AS [EndDate], 
+[BetwRate].[WageRate] AS [WageRate]
+FROM [dbo].[BetwRate] AS [BetwRate]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Dep" EntityType="Self.Dep" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Dep].[id_dep] AS [id_dep], 
+[Dep].[NameDep] AS [NameDep]
+FROM [dbo].[Dep] AS [Dep]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Pos" EntityType="Self.Pos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Pos].[id_pos] AS [id_pos], 
+[Pos].[NamePos] AS [NamePos]
+FROM [dbo].[Pos] AS [Pos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="rate" EntityType="Self.rate" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[rate].[id_rate] AS [id_rate], 
+[rate].[id_pos] AS [id_pos], 
+[rate].[id_dep] AS [id_dep]
+FROM [dbo].[rate] AS [rate]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewDep" EntityType="Self.ViewDep" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ViewDep].[id_dep] AS [id_dep], 
+[ViewDep].[NameDep] AS [NameDep]
+FROM [dbo].[ViewDep] AS [ViewDep]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
